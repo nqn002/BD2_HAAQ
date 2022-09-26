@@ -5,8 +5,9 @@ pipeline {
         stage('Data acquisition Build') { 
             steps {
                 
-                sh  'docker build -t DockerFile_data_fetch .'
-                    
+               // sh  'docker build -t DockerFile_data_fetch .'
+                sh  'docker build -f DockerFile_data_fetch -t data_fetch .'
+
                 
             }
         }

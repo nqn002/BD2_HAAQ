@@ -4,6 +4,16 @@ pipeline {
         maven 'maven_3_8_6'
     }
     stages {
+        stage('Build Maven'){
+            steps{
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/nqn002/BD2_HAAQ']]])
+                //echo 'mvn clean install'#for window
+                //for Linux
+                sh 'mvn clean install'
+            }
+        }
+        
+        
         stage('Data acquisition Build Image') { 
             steps {
                 script{
@@ -16,7 +26,7 @@ pipeline {
                 
             
         
-        stage('Data acquisition Run') { 
+        stage('Data acquisition Run ') { 
             steps {
                 script{
                 sh 'docker run --rm DockerFile_data_fetch .'

@@ -1,0 +1,23 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Data acquisition Build') { 
+            steps {
+                
+                sh """
+                    docker build -t DockerFile_data_fetch
+                """
+            }
+        }
+        stage('Data acquisition Run') { 
+            steps {
+                // 
+                // sh ('chmod +x ./src/nlp_pipeline.py')
+                sh """
+                    docker run --rm DockerFile_data_fetch
+                """
+            }
+        }
+       
+    } 
+}

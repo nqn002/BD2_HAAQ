@@ -1,0 +1,14 @@
+{
+    "roc": [
+        {
+            "fpr": NaN,
+            "tpr": 0.0,
+            "threshold": 2.0
+        },
+        {
+            "fpr": NaN,
+            "tpr": 1.0,
+            "threshold": 1.0
+        }
+    ]
+}

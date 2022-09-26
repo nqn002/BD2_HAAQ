@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     tools{
-        maven 'maven_3_8_6'
+        maven 'BDP2-maven'
     }
     stages {
         stage('Data acquisition Build Image') { 

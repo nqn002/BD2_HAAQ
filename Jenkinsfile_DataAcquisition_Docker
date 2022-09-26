@@ -12,7 +12,7 @@ pipeline {
         }
         
         
-        stage('Data acquisition Build Image') { 
+        stage('Data acquisition Build Docker') { 
             steps {
                 script{
                     echo  'docker build -t DockerFile_data_fetch .'
@@ -24,7 +24,7 @@ pipeline {
                 
             
         
-        stage('Data acquisition Run') { 
+        stage('Data acquisition Run Docker') { 
             steps {
                 script{
                 echo 'docker run --rm DockerFile_data_fetch .'

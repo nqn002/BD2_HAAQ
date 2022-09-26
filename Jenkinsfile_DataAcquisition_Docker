@@ -1,22 +1,26 @@
 pipeline {
     agent any 
-   
+    tools{
+        maven 'maven_3_8_6'
+    }
     stages {
-        stage('Data acquisition Build') { 
+        stage('Data acquisition Build Image') { 
             steps {
-                
-               // sh  'docker build -t DockerFile_data_fetch .'
-                sh  'docker build -f DockerFile_data_fetch -t data_fetch .'
-
+                script{
+                    sh  'docker build -t DockerFile_data_fetch .'
+                   }  
+             }
+      }
+               
+                //sh  'docker build -f DockerFile_data_fetch -t data_fetch .'
                 
             }
         }
         stage('Data acquisition Run') { 
             steps {
-                // 
-                // sh ('chmod +x ./src/nlp_pipeline.py')
+                script{
                 sh 'docker run --rm DockerFile_data_fetch .'
-                    
+                }
                 
             }
         }

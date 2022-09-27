@@ -17,4 +17,3 @@ train:
   - accuracy
 evaluate:
   average: weighted
-  

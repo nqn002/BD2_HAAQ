@@ -1,8 +1,7 @@
 stages:
   prepare:
-    cmd: python3 src/prepare.py data/twitter_data.csv data/prepared
+    cmd: python3 src/prepare.py data/prepared
     deps:
-    - data/twitter_data.csv
     - src/prepare.py
     params:
     - prepare.num_rows
